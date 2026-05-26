@@ -1,0 +1,184 @@
+/* Home.css */
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 3rem;
+}
+
+/* Hero */
+.hero {
+  text-align: left;
+}
+
+.hero-tag {
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  margin-bottom: 0.75rem;
+}
+
+.hero-sub {
+  font-size: 15px;
+}
+
+/* Form */
+.shorten-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.url-input {
+  flex: 1;
+  font-size: 15px;
+}
+
+.alias-toggle {
+  margin-top: -0.25rem;
+}
+
+.alias-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 0;
+  transition: color var(--transition);
+}
+
+.alias-toggle-btn:hover {
+  color: var(--accent);
+}
+
+.alias-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+
+.alias-row:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.alias-prefix {
+  background: var(--bg-hover);
+  border-right: 1px solid var(--border);
+  font-size: 13px;
+  padding: 0.75rem 0.75rem;
+  white-space: nowrap;
+}
+
+.alias-input {
+  border: none;
+  border-radius: 0;
+  flex: 1;
+}
+
+.alias-input:focus {
+  box-shadow: none;
+}
+
+.form-error {
+  font-size: 13px;
+}
+
+/* Result */
+.result-card {
+  border-color: rgba(0, 255, 136, 0.3);
+  animation: pulse-glow 2s ease-in-out;
+}
+
+.result-label {
+  margin-bottom: 0.75rem;
+}
+
+.result-url-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-short-url {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+}
+
+.result-original {
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* How it works */
+.section-label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+
+.step:hover { border-color: var(--border-lit); }
+
+.step-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: 1px;
+  flex-shrink: 0;
+  width: 22px;
+}
+
+.step-title {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 0.2rem;
+}
+
+.step-desc {
+  font-size: 12px;
+  line-height: 1.5;
+}
