@@ -2,7 +2,7 @@
 // All API calls to the backend live here
 // This keeps components clean and makes it easy to change the base URL
 
-const BASE = '/api'; // Goes through Vite proxy to http://localhost:5000
+const BASE = import.meta.env.VITE_API_BASE_URL || '/api'; // Goes through Vite proxy to http://localhost:5000
 
 /**
  * Create a new short URL
