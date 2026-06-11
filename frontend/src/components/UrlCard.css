@@ -1,4 +1,3 @@
-/* UrlCard.css */
 .url-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -10,82 +9,19 @@
   gap: 1rem;
   transition: border-color var(--transition), background var(--transition);
 }
-
-.url-card:hover {
-  border-color: var(--border-lit);
-  background: var(--bg-hover);
-}
-
-.url-card-main {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.url-card-codes {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-}
-
-.short-code {
-  font-weight: 600;
-  font-size: 15px;
-  flex-shrink: 0;
-}
-
-.original-url {
-  font-size: 12px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.url-card-meta {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 0.25rem;
-}
-
-.meta-item {
-  display: flex;
-  align-items: baseline;
-  gap: 0.3rem;
-}
-
-.meta-value {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.meta-label {
-  font-size: 11px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.url-card-actions {
-  display: flex;
-  gap: 0.5rem;
-  flex-shrink: 0;
-}
-
-.url-card-actions .btn {
-  padding: 0.4rem 0.75rem;
-  font-size: 11px;
-}
+.url-card:hover { border-color: var(--border-lit); background: var(--bg-hover); }
+.url-card-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.25rem; }
+.url-card-codes { display: flex; align-items: baseline; gap: 1rem; }
+.short-code { font-weight: 600; font-size: 15px; flex-shrink: 0; }
+.original-url { font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.url-card-meta { display: flex; gap: 1.5rem; margin-top: 0.25rem; }
+.meta-item { display: flex; align-items: baseline; gap: 0.3rem; }
+.meta-value { font-size: 13px; font-weight: 600; color: var(--text); }
+.meta-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.url-card-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+.url-card-actions .btn { padding: 0.4rem 0.75rem; font-size: 11px; }
 
 @media (max-width: 600px) {
-  .url-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .url-card-actions {
-    width: 100%;
-    justify-content: flex-end;
-  }
+  .url-card { flex-direction: column; align-items: flex-start; }
+  .url-card-actions { width: 100%; justify-content: flex-end; }
 }

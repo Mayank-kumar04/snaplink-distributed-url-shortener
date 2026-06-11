@@ -1,195 +1,52 @@
-/* Analytics.css */
-.analytics {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
+.analytics { display: flex; flex-direction: column; gap: 1.25rem; }
 
-.analytics-loading,
-.analytics-error {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 2rem 0;
-  color: var(--text-muted);
+.analytics-loading, .analytics-error {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 1rem; padding: 2rem 0; color: var(--text-muted);
 }
+.analytics-loading { flex-direction: row; align-items: center; }
 
-.analytics-loading {
-  flex-direction: row;
-  align-items: center;
-}
-
-.back-link {
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  transition: color var(--transition);
-}
-
+.back-link { font-size: 12px; letter-spacing: 0.05em; text-decoration: none; transition: color var(--transition); }
 .back-link:hover { color: var(--text); text-decoration: none; }
 
-.analytics-title-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 0.5rem 0 0.25rem;
-}
-
-.code-display {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 800;
-}
+.analytics-title-row { display: flex; align-items: center; gap: 1rem; margin: 0.5rem 0 0.25rem; }
+.code-display { font-family: var(--font-display); font-size: 2rem; font-weight: 800; }
 
 .original-url-link {
-  font-size: 13px;
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  text-decoration: none;
-  transition: color var(--transition);
+  font-size: 13px; display: block; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap;
+  text-decoration: none; transition: color var(--transition);
 }
-
 .original-url-link:hover { color: var(--text); }
 
-.analytics-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
+.analytics-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 
-.stat-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-}
+.stat-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; }
+.stat-value { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem; }
+.stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
 
-.stat-value {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 0.3rem;
-}
+.chart-title { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.25rem; color: var(--text-muted); }
+.chart-container { margin: 0 -0.5rem; }
 
-.stat-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
+.chart-tooltip { background: var(--bg-card); border: 1px solid var(--border-lit); border-radius: 6px; padding: 0.5rem 0.75rem; }
+.tooltip-date { font-size: 11px; color: var(--text-muted); margin-bottom: 0.2rem; }
+.tooltip-value { font-size: 14px; font-weight: 700; }
 
-.chart-title {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-  color: var(--text-muted);
-}
+.referrer-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.referrer-row { display: flex; align-items: center; gap: 0.75rem; }
+.referrer-source { font-size: 12px; width: 140px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.referrer-bar-wrap { flex: 1; background: var(--bg-hover); border-radius: 3px; height: 6px; overflow: hidden; }
+.referrer-bar { background: var(--accent); height: 100%; border-radius: 3px; min-width: 4px; transition: width 0.5s ease; }
+.referrer-count { font-size: 12px; width: 30px; text-align: right; }
 
-.chart-container {
-  margin: 0 -0.5rem;
-}
-
-.chart-tooltip {
-  background: var(--bg-card);
-  border: 1px solid var(--border-lit);
-  border-radius: 6px;
-  padding: 0.5rem 0.75rem;
-}
-
-.tooltip-date {
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-bottom: 0.2rem;
-}
-
-.tooltip-value {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-/* Referrers */
-.referrer-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.referrer-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.referrer-source {
-  font-size: 12px;
-  width: 140px;
-  flex-shrink: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.referrer-bar-wrap {
-  flex: 1;
-  background: var(--bg-hover);
-  border-radius: 3px;
-  height: 6px;
-  overflow: hidden;
-}
-
-.referrer-bar {
-  background: var(--accent);
-  height: 100%;
-  border-radius: 3px;
-  min-width: 4px;
-  transition: width 0.5s ease;
-}
-
-.referrer-count {
-  font-size: 12px;
-  width: 30px;
-  text-align: right;
-}
-
-/* Recent clicks table */
-.recent-clicks {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.table-header,
-.table-row {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr;
-  gap: 1rem;
-  padding: 0.6rem 0;
-}
-
-.table-header {
-  border-bottom: 1px solid var(--border);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 0.25rem;
-}
-
-.table-row {
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-}
-
-.table-row:last-child {
-  border-bottom: none;
-}
+.recent-clicks { display: flex; flex-direction: column; }
+.table-header, .table-row { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 1rem; padding: 0.6rem 0; }
+.table-header { border-bottom: 1px solid var(--border); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem; }
+.table-row { border-bottom: 1px solid rgba(255,255,255,0.03); }
+.table-row:last-child { border-bottom: none; }
 
 @media (max-width: 600px) {
   .analytics-stats { grid-template-columns: 1fr 1fr; }
   .table-header, .table-row { grid-template-columns: 1fr 1fr; }
-  .table-row span:last-child,
-  .table-header span:last-child { display: none; }
+  .table-row span:last-child, .table-header span:last-child { display: none; }
 }

@@ -1,6 +1,6 @@
-// src/components/Navbar.jsx
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logoSvg from '../assets/logo.svg';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -10,9 +10,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-inner">
         <Link to="/" className="navbar-logo">
-          <span className="logo-bracket">[</span>
-          SnapLink
-          <span className="logo-bracket">]</span>
+          <img src={logoSvg} alt="SnapLink" className="navbar-logo-img" />
         </Link>
 
         <div className="navbar-links">

@@ -1,5 +1,3 @@
-// src/pages/Dashboard.jsx
-// Lists all created URLs with stats, pagination, and delete
 import React, { useState, useEffect } from 'react';
 import { getUrls, getStats } from '../utils/api';
 import UrlCard from '../components/UrlCard';
@@ -13,19 +11,12 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Load URLs and stats
-  useEffect(() => {
-    loadData();
-  }, [page]);
+  useEffect(() => { loadData(); }, [page]);
 
   async function loadData() {
-    setLoading(true);
-    setError('');
+    setLoading(true); setError('');
     try {
-      const [urlData, statsData] = await Promise.all([
-        getUrls(page, 10),
-        getStats(),
-      ]);
+      const [urlData, statsData] = await Promise.all([getUrls(page, 10), getStats()]);
       setUrls(urlData.urls);
       setTotalPages(urlData.totalPages);
       setStats(statsData);
@@ -38,10 +29,7 @@ export default function Dashboard() {
 
   function handleDelete(shortCode) {
     setUrls(prev => prev.filter(u => u.short_code !== shortCode));
-    if (stats) setStats(prev => ({
-      ...prev,
-      total_urls: Math.max(0, (parseInt(prev.total_urls) - 1)).toString()
-    }));
+    if (stats) setStats(prev => ({ ...prev, total_urls: Math.max(0, parseInt(prev.total_urls) - 1).toString() }));
   }
 
   return (
@@ -51,14 +39,13 @@ export default function Dashboard() {
         <p className="text-muted">All your shortened URLs</p>
       </div>
 
-      {/* Stats row */}
       {stats && (
         <div className="stats-row fade-up">
           {[
-            { label: 'Total URLs', value: stats.total_urls },
-            { label: 'Total Clicks', value: stats.total_clicks },
-            { label: 'Clicks Today', value: stats.clicks_today },
-            { label: 'URLs Today', value: stats.urls_today },
+            { label: 'Total URLs',    value: stats.total_urls },
+            { label: 'Total Clicks',  value: stats.total_clicks },
+            { label: 'Clicks Today',  value: stats.clicks_today },
+            { label: 'URLs Today',    value: stats.urls_today },
           ].map(({ label, value }) => (
             <div className="stat-box" key={label}>
               <div className="stat-value text-accent">{parseInt(value).toLocaleString()}</div>
@@ -68,13 +55,10 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* URL List */}
       {error && <div className="text-red mt-2">⚠ {error}</div>}
 
       {loading ? (
-        <div className="loading-state">
-          <span className="spinner" /> Loading…
-        </div>
+        <div className="loading-state"><span className="spinner" /> Loading…</div>
       ) : urls.length === 0 ? (
         <div className="empty-state">
           <p className="text-muted">No URLs yet.</p>
@@ -82,32 +66,15 @@ export default function Dashboard() {
         </div>
       ) : (
         <div className="url-list">
-          {urls.map(url => (
-            <UrlCard key={url.id} url={url} onDelete={handleDelete} />
-          ))}
+          {urls.map(url => <UrlCard key={url.id} url={url} onDelete={handleDelete} />)}
         </div>
       )}
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="pagination">
-          <button
-            className="btn"
-            disabled={page === 1}
-            onClick={() => setPage(p => p - 1)}
-          >
-            ← Prev
-          </button>
-          <span className="page-info text-muted">
-            {page} / {totalPages}
-          </span>
-          <button
-            className="btn"
-            disabled={page === totalPages}
-            onClick={() => setPage(p => p + 1)}
-          >
-            Next →
-          </button>
+          <button className="btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>← Prev</button>
+          <span className="page-info text-muted">{page} / {totalPages}</span>
+          <button className="btn" disabled={page === totalPages} onClick={() => setPage(p => p + 1)}>Next →</button>
         </div>
       )}
     </div>

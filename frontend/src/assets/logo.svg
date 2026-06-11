@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+  <rect width="200" height="200" rx="32" fill="#0a0a0a"/>
+
+  <!-- Left chain link -->
+  <rect x="22" y="82" width="68" height="36" rx="18" fill="none" stroke="#00ff88" stroke-width="9"/>
+  <!-- Left link inner cutout (open right side) -->
+  <rect x="68" y="91" width="22" height="18" fill="#0a0a0a"/>
+
+  <!-- Right chain link -->
+  <rect x="110" y="82" width="68" height="36" rx="18" fill="none" stroke="#333333" stroke-width="9"/>
+  <!-- Right link inner cutout (open left side) -->
+  <rect x="110" y="91" width="22" height="18" fill="#0a0a0a"/>
+
+  <!-- Snap gap line (the cut) -->
+  <line x1="100" y1="74" x2="100" y2="126" stroke="#00ff88" stroke-width="2" stroke-dasharray="4 3" opacity="0.5"/>
+
+  <!-- Spark dots at snap point -->
+  <circle cx="100" cy="100" r="3.5" fill="#00ff88"/>
+  <circle cx="91"  cy="88"  r="1.8" fill="#00ff88" opacity="0.7"/>
+  <circle cx="109" cy="88"  r="1.8" fill="#00ff88" opacity="0.4"/>
+  <circle cx="91"  cy="112" r="1.8" fill="#00ff88" opacity="0.4"/>
+  <circle cx="109" cy="112" r="1.8" fill="#00ff88" opacity="0.7"/>
+
+  <!-- Wordmark -->
+  <text x="100" y="162"
+    font-family="'Syne', 'Arial Black', sans-serif"
+    font-weight="800"
+    font-size="22"
+    letter-spacing="-0.5"
+    text-anchor="middle"
+    fill="#f0f0f0">Snap<tspan fill="#00ff88">Link</tspan></text>
+</svg>

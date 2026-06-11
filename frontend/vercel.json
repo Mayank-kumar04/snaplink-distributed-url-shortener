@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/api/:path*",       "destination": "https://YOUR_RAILWAY_URL/api/:path*" },
+    { "source": "/dashboard",        "destination": "/index.html" },
+    { "source": "/analytics/:path*", "destination": "/index.html" },
+    { "source": "/:code",            "destination": "https://YOUR_RAILWAY_URL/:code" },
+    { "source": "/",                 "destination": "/index.html" }
+  ]
+}

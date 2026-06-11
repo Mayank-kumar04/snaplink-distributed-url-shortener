@@ -1,39 +1,24 @@
-/* globals.css — SnapLink Design System */
-/* Aesthetic: Dark industrial with electric accent — like a terminal that's beautiful */
-
 :root {
   --bg:         #0a0a0a;
   --bg-card:    #111111;
   --bg-hover:   #1a1a1a;
   --border:     #222222;
   --border-lit: #333333;
-
-  --accent:     #00ff88;       /* electric green — the signature color */
+  --accent:     #00ff88;
   --accent-dim: rgba(0, 255, 136, 0.12);
   --accent-glow: rgba(0, 255, 136, 0.25);
-
   --text:       #f0f0f0;
   --text-muted: #666666;
   --text-dim:   #444444;
-
   --red:        #ff4444;
-  --yellow:     #ffcc00;
-
   --font-display: 'Syne', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
-
   --radius:    8px;
   --radius-lg: 16px;
-
   --transition: 0.2s ease;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -43,14 +28,12 @@ body {
   font-size: 14px;
   line-height: 1.6;
   min-height: 100vh;
-  /* Subtle grid texture background */
   background-image:
     linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
-/* ── Typography ────────────────────────────────────────────── */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 800;
@@ -61,28 +44,9 @@ h1, h2, h3, h4 {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ── Layout ────────────────────────────────────────────────── */
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+.app { display: flex; flex-direction: column; min-height: 100vh; }
+.main-content { flex: 1; padding: 2rem 1rem; max-width: 900px; margin: 0 auto; width: 100%; }
 
-.main-content {
-  flex: 1;
-  padding: 2rem 1rem;
-  max-width: 900px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* ── Cards ─────────────────────────────────────────────────── */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -90,12 +54,8 @@ a:hover { text-decoration: underline; }
   padding: 1.5rem;
   transition: border-color var(--transition);
 }
+.card:hover { border-color: var(--border-lit); }
 
-.card:hover {
-  border-color: var(--border-lit);
-}
-
-/* ── Inputs ─────────────────────────────────────────────────── */
 .input {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -108,15 +68,9 @@ a:hover { text-decoration: underline; }
   transition: border-color var(--transition), box-shadow var(--transition);
   outline: none;
 }
-
-.input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-dim);
-}
-
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
 .input::placeholder { color: var(--text-dim); }
 
-/* ── Buttons ─────────────────────────────────────────────────── */
 .btn {
   background: transparent;
   border: 1px solid var(--border);
@@ -132,37 +86,12 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 700; }
+.btn-primary:hover { background: #00e077; box-shadow: 0 0 20px var(--accent-glow); color: #000; }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+.btn-danger:hover { border-color: var(--red); color: var(--red); }
 
-.btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.btn-primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #000;
-  font-weight: 700;
-}
-
-.btn-primary:hover {
-  background: #00e077;
-  box-shadow: 0 0 20px var(--accent-glow);
-  color: #000;
-}
-
-.btn-primary:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.btn-danger:hover {
-  border-color: var(--red);
-  color: var(--red);
-}
-
-/* ── Badges ─────────────────────────────────────────────────── */
 .badge {
   background: var(--accent-dim);
   border: 1px solid rgba(0,255,136,0.3);
@@ -175,24 +104,12 @@ a:hover { text-decoration: underline; }
   text-transform: uppercase;
 }
 
-/* ── Utility ─────────────────────────────────────────────────── */
 .text-accent  { color: var(--accent); }
 .text-muted   { color: var(--text-muted); }
 .text-red     { color: var(--red); }
-
-.flex         { display: flex; }
-.flex-col     { flex-direction: column; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.gap-1 { gap: 0.5rem; }
-.gap-2 { gap: 1rem; }
-.gap-3 { gap: 1.5rem; }
-.mt-1 { margin-top: 0.5rem; }
 .mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
 .mt-4 { margin-top: 2rem; }
 
-/* ── Loading spinner ─────────────────────────────────────────── */
 @keyframes spin { to { transform: rotate(360deg); } }
 .spinner {
   width: 20px; height: 20px;
@@ -203,22 +120,17 @@ a:hover { text-decoration: underline; }
   display: inline-block;
 }
 
-/* ── Animations ──────────────────────────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-.fade-up {
-  animation: fadeUp 0.4s ease forwards;
-}
+.fade-up { animation: fadeUp 0.4s ease forwards; }
 
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 8px var(--accent-glow); }
   50%       { box-shadow: 0 0 24px var(--accent-glow); }
 }
 
-/* ── Scrollbar ────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border-lit); border-radius: 3px; }

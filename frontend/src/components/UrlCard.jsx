@@ -1,5 +1,3 @@
-// src/components/UrlCard.jsx
-// Displays a single URL with copy button, analytics link, delete button
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { deleteUrl } from '../utils/api';
@@ -30,7 +28,6 @@ export default function UrlCard({ url, onDelete }) {
     }
   }
 
-  // Truncate long URLs for display
   const displayUrl = url.original_url.length > 55
     ? url.original_url.slice(0, 55) + '…'
     : url.original_url;
@@ -44,11 +41,8 @@ export default function UrlCard({ url, onDelete }) {
       <div className="url-card-main">
         <div className="url-card-codes">
           <span className="short-code text-accent">{url.short_code}</span>
-          <span className="original-url text-muted" title={url.original_url}>
-            {displayUrl}
-          </span>
+          <span className="original-url text-muted" title={url.original_url}>{displayUrl}</span>
         </div>
-
         <div className="url-card-meta">
           <span className="meta-item">
             <span className="meta-value">{url.total_clicks ?? url.click_count ?? 0}</span>
@@ -59,17 +53,10 @@ export default function UrlCard({ url, onDelete }) {
           </span>
         </div>
       </div>
-
       <div className="url-card-actions">
-        <button className="btn" onClick={handleCopy}>
-          {copied ? '✓ Copied' : 'Copy'}
-        </button>
-        <button className="btn" onClick={() => navigate(`/analytics/${url.short_code}`)}>
-          Stats
-        </button>
-        <button className="btn btn-danger" onClick={handleDelete} disabled={deleting}>
-          {deleting ? '…' : 'Del'}
-        </button>
+        <button className="btn" onClick={handleCopy}>{copied ? '✓ Copied' : 'Copy'}</button>
+        <button className="btn" onClick={() => navigate(`/analytics/${url.short_code}`)}>Stats</button>
+        <button className="btn btn-danger" onClick={handleDelete} disabled={deleting}>{deleting ? '…' : 'Del'}</button>
       </div>
     </div>
   );

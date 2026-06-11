@@ -1,5 +1,3 @@
-// src/pages/Home.jsx
-// The main page — URL shortening form + result display
 import React, { useState } from 'react';
 import { createShortUrl } from '../utils/api';
 import './Home.css';
@@ -15,15 +13,10 @@ export default function Home() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setError('');
-    setResult(null);
-    setLoading(true);
-
+    setError(''); setResult(null); setLoading(true);
     try {
       const data = await createShortUrl(url, alias);
-      setResult(data);
-      setUrl('');
-      setAlias('');
+      setResult(data); setUrl(''); setAlias('');
     } catch (err) {
       setError(err.message);
     } finally {
@@ -40,18 +33,12 @@ export default function Home() {
 
   return (
     <div className="home">
-      {/* Hero */}
       <div className="hero fade-up">
         <div className="hero-tag badge">URL Shortener</div>
-        <h1 className="hero-title">
-          Make it <span className="text-accent">short.</span>
-        </h1>
-        <p className="hero-sub text-muted">
-          Paste any URL. Get a sharp link. Track every click.
-        </p>
+        <h1 className="hero-title">Make it <span className="text-accent">short.</span></h1>
+        <p className="hero-sub text-muted">Paste any URL. Get a sharp link. Track every click.</p>
       </div>
 
-      {/* Form */}
       <form className="shorten-form card fade-up" onSubmit={handleSubmit}>
         <div className="form-row">
           <input
@@ -60,21 +47,15 @@ export default function Home() {
             placeholder="https://your-very-long-url.com/goes/here"
             value={url}
             onChange={e => setUrl(e.target.value)}
-            required
-            autoFocus
+            required autoFocus
           />
           <button className="btn btn-primary" type="submit" disabled={loading || !url}>
             {loading ? <span className="spinner" /> : 'Shorten →'}
           </button>
         </div>
 
-        {/* Optional alias toggle */}
         <div className="alias-toggle">
-          <button
-            type="button"
-            className="alias-toggle-btn text-muted"
-            onClick={() => setShowAlias(v => !v)}
-          >
+          <button type="button" className="alias-toggle-btn text-muted" onClick={() => setShowAlias(v => !v)}>
             {showAlias ? '− Custom alias' : '+ Custom alias'}
           </button>
         </div>
@@ -84,21 +65,15 @@ export default function Home() {
             <span className="alias-prefix text-muted">snaplink.io/</span>
             <input
               className="input alias-input"
-              type="text"
-              placeholder="my-custom-name"
-              value={alias}
-              onChange={e => setAlias(e.target.value)}
-              maxLength={50}
+              type="text" placeholder="my-custom-name"
+              value={alias} onChange={e => setAlias(e.target.value)} maxLength={50}
             />
           </div>
         )}
 
-        {error && (
-          <div className="form-error text-red fade-up">⚠ {error}</div>
-        )}
+        {error && <div className="form-error text-red fade-up">⚠ {error}</div>}
       </form>
 
-      {/* Result */}
       {result && (
         <div className="result-card card fade-up">
           <div className="result-label badge">Ready</div>
@@ -114,15 +89,14 @@ export default function Home() {
         </div>
       )}
 
-      {/* How it works */}
       <div className="how-it-works mt-4 fade-up">
         <h3 className="section-label text-muted">How it works</h3>
         <div className="steps">
           {[
-            ['01', 'Hash', 'nanoid generates a unique 7-char base62 code (62⁷ = 3.5 trillion combos)'],
-            ['02', 'Cache', 'Stored in Redis instantly — first redirect is just as fast as the thousandth'],
+            ['01', 'Hash',    'nanoid generates a unique 7-char base62 code (62⁷ = 3.5 trillion combos)'],
+            ['02', 'Cache',   'Stored in Redis instantly — first redirect is just as fast as the thousandth'],
             ['03', 'Persist', 'Saved to PostgreSQL with a B-tree index on short_code for O(log n) lookups'],
-            ['04', 'Track', 'Every click is recorded — IP, referrer, timestamp — for analytics'],
+            ['04', 'Track',   'Every click is recorded — IP, referrer, timestamp — for analytics'],
           ].map(([num, title, desc]) => (
             <div className="step" key={num}>
               <span className="step-num text-accent">{num}</span>
