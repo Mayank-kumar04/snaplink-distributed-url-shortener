@@ -1,9 +1,15 @@
 {
   "rewrites": [
-    { "source": "/api/:path*",       "destination": "https://snaplink-distributed-url-shortener-production.up.railway.app/api/:path*" },
-    { "source": "/dashboard",        "destination": "/index.html" },
-    { "source": "/analytics/:path*", "destination": "/index.html" },
-    { "source": "/:code",            "destination": "https://snaplink-distributed-url-shortener-production.up.railway.app/:code" },
-    { "source": "/",                 "destination": "/index.html" }
+    {
+      "source": "/api/:path*",
+      "destination": "https://snaplink-distributed-url-shortener-production.up.railway.app/api/:path*"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:code([A-Za-z0-9_-]{7})",
+      "destination": "https://snaplink-distributed-url-shortener-production.up.railway.app/:code",
+      "permanent": false
+    }
   ]
 }
