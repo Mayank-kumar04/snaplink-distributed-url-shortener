@@ -78,7 +78,7 @@ npm run dev
 4. Run `npm run migrate` in backend
 5. Start both servers
 
-## 🎯 Key Interview Talking Points
+## 🎯 Design Decisions
 
 1. **Hashing Strategy**: We use nanoid to generate random 7-char alphanumeric codes (base62: a-z, A-Z, 0-9). This gives 62^7 = 3.5 trillion possible URLs — essentially collision-free at scale.
 
